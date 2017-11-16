@@ -52,7 +52,7 @@ public class ClienteService {
 		}
 	}
 
-	private void guardar(Cliente cliente) {
+	public void guardar(Cliente cliente) {
 		if (cliente == null) {
 			return;
 		} else {

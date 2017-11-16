@@ -40,6 +40,7 @@ public class MyUI extends UI {
 		grid.setSelectionMode(SelectionMode.SINGLE);// solo puede seleccionar un elemento de la tabla a la vez
 		grid.setColumns("nombre", "apellido", "email");// que atributos del cliente queremos que muestre. tienen que
 														// coincidir con los nombres de las propiedades del cliente
+		grid.setSizeFull();
 
 		actualizarTabla();// llenamos la tabla
 
@@ -62,7 +63,7 @@ public class MyUI extends UI {
 		setContent(layout);
 	}
 
-	private void actualizarTabla() {
+	public void actualizarTabla() {
 		grid.setItems(clienteService.findAll(filterText.getValue()));
 
 	}
