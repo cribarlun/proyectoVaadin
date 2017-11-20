@@ -2,7 +2,6 @@ package es.ayesa.proyectoVaadin;
 
 import com.vaadin.data.Binder;
 import com.vaadin.event.ShortcutAction.KeyCode;
-import com.vaadin.event.ShortcutAction.KeyCode;
 
 @SuppressWarnings("serial")
 public class ClienteFormBack extends ClienteForm {
@@ -10,10 +9,10 @@ public class ClienteFormBack extends ClienteForm {
 	private ClienteService clienteService = ClienteService.getInstancia();
 	private Binder<Cliente> binder = new Binder<>(Cliente.class);
 	private Cliente cliente;
-	private MyUI myUI;
+	private VistaCliente vistaCliente;
 
-	public ClienteFormBack(MyUI myui) {
-		this.myUI = myui;
+	public ClienteFormBack(VistaCliente vistaCliente) {
+		this.vistaCliente = vistaCliente;
 
 		guardar.setClickShortcut(KeyCode.ENTER); // pulsar este boton'guardar' es lo mismo que darle a enter
 		estado.setItems(ClienteEstado.values());
@@ -36,13 +35,13 @@ public class ClienteFormBack extends ClienteForm {
 
 	private void guardar() {
 		clienteService.guardar(cliente);
-		myUI.actualizarTabla();
+		vistaCliente.actualizarTabla();
 		setVisible(false);
 	}
 
 	private void borrar() {
 		clienteService.borrar(cliente);
-		myUI.actualizarTabla();
+		vistaCliente.actualizarTabla();
 		setVisible(false);
 	}
 }
